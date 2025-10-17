@@ -1,0 +1,106 @@
+================================================================================
+REWARD FUNCTION ANALYSIS REPORT
+================================================================================
+
+1. REWARD MATRIX (Base Rewards)
+--------------------------------------------------------------------------------
+==================================================
+Reward Function Summary
+==================================================
+
+Base Rewards (without amount weighting):
+--------------------------------------------------
+
+APPROVE:
+  Normal    :    +10.0
+  Fraud     :   -500.0
+
+MANUAL_REVIEW:
+  Normal    :     -5.0
+  Fraud     :    +50.0
+
+BLOCK:
+  Normal    :   -100.0
+  Fraud     :   +100.0
+
+==================================================
+Amount Weighting Example (amount = 1,000,000):
+--------------------------------------------------
+Weight factor: 2.200
+
+APPROVE + Fraud:
+  Base:   -500.0 → Weighted:  -1100.0
+MANUAL_REVIEW + Fraud:
+  Base:    +50.0 → Weighted:   +110.0
+BLOCK + Fraud:
+  Base:   +100.0 → Weighted:   +220.0
+
+2. DECISION THRESHOLDS (Amount: 1M KRW)
+--------------------------------------------------------------------------------
+  APPROVE_to_MANUAL_REVIEW: 0.0123
+  MANUAL_REVIEW_to_BLOCK: 0.4634
+
+3. AMOUNT WEIGHTING EXAMPLES
+--------------------------------------------------------------------------------
+  Amount:        1,000 KRW
+    Weight Factor:        1.600x
+    BLOCK Fraud Reward:      160.0
+    APPROVE Fraud Penalty:   -800.0
+
+  Amount:       10,000 KRW
+    Weight Factor:        1.800x
+    BLOCK Fraud Reward:      180.0
+    APPROVE Fraud Penalty:   -900.0
+
+  Amount:      100,000 KRW
+    Weight Factor:        2.000x
+    BLOCK Fraud Reward:      200.0
+    APPROVE Fraud Penalty:  -1000.0
+
+  Amount:    1,000,000 KRW
+    Weight Factor:        2.200x
+    BLOCK Fraud Reward:      220.0
+    APPROVE Fraud Penalty:  -1100.0
+
+  Amount:   10,000,000 KRW
+    Weight Factor:        2.400x
+    BLOCK Fraud Reward:      240.0
+    APPROVE Fraud Penalty:  -1200.0
+
+  Amount:  100,000,000 KRW
+    Weight Factor:        2.600x
+    BLOCK Fraud Reward:      260.0
+    APPROVE Fraud Penalty:  -1300.0
+
+4. STATISTICAL ANALYSIS
+--------------------------------------------------------------------------------
+  Minimum Reward: -500.0
+  Maximum Reward: 100.0
+  Mean Reward:    -74.2
+  Std Dev:        199.8
+
+5. OPTIMAL ACTIONS FOR COMMON SCENARIOS
+--------------------------------------------------------------------------------
+  Low risk, 1M donation
+    Fraud Probability: 0.01
+    Optimal Action:    APPROVE
+    Expected Reward:   -1.10
+
+  Medium risk, 1M donation
+    Fraud Probability: 0.50
+    Optimal Action:    BLOCK
+    Expected Reward:   60.00
+
+  High risk, 1M donation
+    Fraud Probability: 0.90
+    Optimal Action:    BLOCK
+    Expected Reward:   188.00
+
+  Very high risk, 10M donation
+    Fraud Probability: 0.95
+    Optimal Action:    BLOCK
+    Expected Reward:   223.00
+
+================================================================================
+END OF REPORT
+================================================================================

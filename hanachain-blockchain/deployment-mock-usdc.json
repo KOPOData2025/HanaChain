@@ -1,0 +1,14 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "contract": {
+    "name": "MockUSDC",
+    "address": "0x5eA3DE89105aE1be35219eaf91b86A3Ba8607D59",
+    "symbol": "USDC",
+    "decimals": 6,
+    "totalSupply": "1000000.0"
+  },
+  "deployer": "0xa757A82EDC4E1fA41E2bE0e1E0E4E847E6dd59F3",
+  "timestamp": "2025-10-04T14:10:15.912Z",
+  "blockNumber": 9341643
+}

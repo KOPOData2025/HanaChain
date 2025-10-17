@@ -1,0 +1,31 @@
+-- HanaChain Organization Test Data
+-- This file is automatically executed by Spring Boot when spring.jpa.defer-datasource-initialization=true
+
+-- Note: Sequences should be created via schema.sql or manually in the database
+-- This data.sql file only contains INSERT statements for test data
+
+-- Insert test organizations
+INSERT INTO organizations (id_organization, name, description, image_url, status, created_at, updated_at, deleted_at) VALUES 
+(1, 'HanaChain Foundation', 'The official HanaChain Foundation dedicated to promoting blockchain-based crowdfunding solutions. We focus on transparency, innovation, and community-driven projects that make a positive impact on society.', 'https://images.hanachain.com/foundation-logo.png', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO organizations (id_organization, name, description, image_url, status, created_at, updated_at, deleted_at) VALUES 
+(2, 'Green Earth Initiative', 'Environmental organization focused on sustainability projects, renewable energy campaigns, and climate change awareness. We support eco-friendly startups and green technology innovations.', 'https://images.hanachain.com/green-earth-logo.png', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO organizations (id_organization, name, description, image_url, status, created_at, updated_at, deleted_at) VALUES 
+(3, 'Tech Innovation Hub', 'Supporting cutting-edge technology projects and startup incubation. We provide funding and mentorship for AI, blockchain, and IoT innovations that solve real-world problems.', 'https://images.hanachain.com/tech-hub-logo.png', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+INSERT INTO organizations (id_organization, name, description, image_url, status, created_at, updated_at, deleted_at) VALUES 
+(4, 'Community Health Network', 'Healthcare organization focusing on community wellness, medical research funding, and healthcare accessibility projects. We bridge the gap between medical innovation and community needs.', 'https://images.hanachain.com/health-network-logo.png', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, NULL);
+
+-- Insert organization-user relationships (assuming admin user with id=1 exists)
+INSERT INTO organization_users (id_org_user, id_organization, id_user, role, created_at) VALUES 
+(1, 1, 1, 'ORG_ADMIN', CURRENT_TIMESTAMP);
+
+INSERT INTO organization_users (id_org_user, id_organization, id_user, role, created_at) VALUES 
+(2, 2, 1, 'ORG_ADMIN', CURRENT_TIMESTAMP);
+
+INSERT INTO organization_users (id_org_user, id_organization, id_user, role, created_at) VALUES 
+(3, 3, 1, 'ORG_ADMIN', CURRENT_TIMESTAMP);
+
+INSERT INTO organization_users (id_org_user, id_organization, id_user, role, created_at) VALUES 
+(4, 4, 1, 'ORG_ADMIN', CURRENT_TIMESTAMP);

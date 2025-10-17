@@ -1,0 +1,35 @@
+{
+  "name": "wearehana-blockchain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
+    "check-env": "node scripts/check-environment.js",
+    "test-network": "node scripts/test-network.js",
+    "check-wallet": "node scripts/check-wallet.js",
+    "verify-setup": "node scripts/verify-setup.js",
+    "setup-alchemy": "node scripts/setup-alchemy.js",
+    "test:core": "npx hardhat test test/core/MockUSDC.test.js test/core/HanaChainCampaign.test.js test/core/HanaChainFactory.test.js",
+    "test:examples": "npx hardhat test test/examples/Lock.test.js",
+    "test:usdc": "npx hardhat test test/core/MockUSDC.test.js",
+    "test:campaign": "npx hardhat test test/core/HanaChainCampaign.test.js",
+    "test:factory": "npx hardhat test test/core/HanaChainFactory.test.js",
+    "deploy:usdc": "node scripts/core/deploy-mock-usdc.js",
+    "deploy:hana": "node scripts/core/deploy-hana.js",
+    "deploy:campaign": "node scripts/core/deploy-campaign.js",
+    "check-campaigns": "node scripts/check-campaigns.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "hardhat": "^2.26.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.4.0",
+    "dotenv": "^16.3.1",
+    "task-master-ai": "^0.23.0"
+  }
+}

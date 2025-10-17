@@ -1,0 +1,71 @@
+# DQN Model Configuration
+
+model:
+  name: "donation_fraud_dqn"
+  version: "1.0.0"
+
+  # Network Architecture
+  architecture:
+    input_dim: 12
+    hidden_layers:
+      - units: 64
+        activation: "relu"
+        batch_norm: true
+        dropout: 0.2
+      - units: 32
+        activation: "relu"
+        batch_norm: true
+        dropout: 0.2
+      - units: 16
+        activation: "relu"
+        batch_norm: false
+        dropout: 0.0
+    output_dim: 3  # APPROVE, MANUAL_REVIEW, BLOCK
+    output_activation: "linear"
+
+  # Optimizer Settings
+  optimizer:
+    type: "adam"
+    learning_rate: 0.001
+    clipnorm: 1.0
+    beta_1: 0.9
+    beta_2: 0.999
+    epsilon: 1.0e-07
+
+  # Loss Function
+  loss:
+    type: "huber"
+    delta: 1.0
+
+  # DQN Specific
+  dqn:
+    gamma: 0.99  # Discount factor
+    target_update_frequency: 100  # Update target network every N steps
+    replay_buffer_size: 10000
+    batch_size: 64
+
+# Action Space
+actions:
+  - name: "APPROVE"
+    code: 0
+    description: "즉시 승인"
+  - name: "MANUAL_REVIEW"
+    code: 1
+    description: "수동 검토"
+  - name: "BLOCK"
+    code: 2
+    description: "거래 차단"
+
+# Reward Matrix
+rewards:
+  # [action, is_fraud] -> reward
+  approve_normal: 10
+  approve_fraud: -500
+  review_normal: -5
+  review_fraud: 50
+  block_normal: -100
+  block_fraud: 100
+
+  # Amount weighting
+  amount_weight_enabled: true
+  amount_weight_formula: "log10(amount + 1) / 5"

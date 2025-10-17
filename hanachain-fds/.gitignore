@@ -1,0 +1,266 @@
+#taskmaster
+.taskmaster
+.claude
+.cursor
+.gemini
+.kiro
+.kilo
+.roo
+.windsurf
+.trae
+.clinerules
+.zed
+
+#AI
+.mcp.json
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev-debug.log
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS specific
+.DS_Store
+
+# Task files
+# tasks.json
+# tasks/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Data
+data/raw/*
+data/processed/*
+data/models/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/models/.gitkeep
+!data/models/MODEL_METADATA.json
+
+# Deployment
+deploy/.env
+deploy/*.log
+
+# Logs
+logs/
+*.log
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# PyCharm
+.idea/
+
+# TensorFlow
+*.ckpt
+*.h5
+*.pb
+saved_model/
+
+# Temporary files
+*.tmp
+*.bak
+*~
+
+# FDS Specific Files
+# =================
+
+# Model files and checkpoints
+*.h5
+*.hdf5
+*.ckpt
+*.pb
+*.pkl
+*.joblib
+*.model
+*.weights
+*.config.yaml
+!data/models/MODEL_METADATA.json
+!data/models/*.example.*
+
+# Training artifacts
+checkpoints/
+training_history/
+training_logs/
+wandb/
+tensorboard_logs/
+mlruns/
+
+# Model evaluation results
+evaluation_results/
+evaluation_*.yaml
+evaluation_*.json
+evaluation_*.csv
+
+# Feature engineering artifacts
+feature_cache/
+feature_pipeline_*.pkl
+feature_scaler_*.pkl
+feature_encoder_*.pkl
+
+# Data processing artifacts
+data/processed/*.parquet
+data/processed/*.feather
+data/processed/*.h5
+data/processed/*.hdf5
+data/processed/*.pkl
+data/processed/*.joblib
+data/processed/*.csv
+!data/processed/.gitkeep
+
+# Visualization outputs
+plots/
+charts/
+figures/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+!data/visualizations/.gitkeep
+
+# Oracle database artifacts
+*.dmp
+*.sql
+*.log
+!tmp/*.example.sql
+
+# Performance profiling
+*.prof
+*.cprof
+*.profile
+profile_results/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+*.ipynb
+
+# MLflow artifacts
+mlflow/
+mlruns/
+mlartifacts/
+
+# Weights & Biases
+wandb/
+
+# Hydra configuration outputs
+outputs/
+.hydra/
+
+# Ray Tune results
+ray_results/
+
+# Optuna study results
+optuna_studies/
+
+# DVC (Data Version Control)
+.dvc/
+*.dvc
+
+# Great Expectations
+great_expectations/uncommitted/
+
+# Prefect
+.prefect/
+
+# Airflow
+airflow.cfg
+airflow.db
+logs/
+
+# Kubernetes
+*.kubeconfig
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Monitoring and observability
+prometheus_data/
+grafana_data/
+jaeger_data/
+
+# Security and secrets
+secrets/
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+vault/
+
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+
+# IDE specific
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/shelf
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+*.lnk
+
+# Linux
+*~
+
+# FDS specific patterns
+fraud_patterns/
+anomaly_detection_results/
+risk_scores/
+alert_logs/
+transaction_analysis/ 

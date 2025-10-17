@@ -1,0 +1,505 @@
+# hanachain common
+# =====================
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dev-debug.log
+
+# Dependency directories
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS specific
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# AI tools (common across all repos)
+.taskmaster/
+.claude/
+.cursor/
+.gemini/
+.kiro/
+.kilo/
+.roo/
+.windsurf/
+.trae/
+.clinerules/
+.zed/
+.github/
+.mcp.json
+opencode.json
+
+# Documentation
+docs/
+CLAUDE.md
+
+# Temporary files
+*.tmp
+*.bak
+*.old
+*.orig
+*~
+
+# Backup files
+*.backup
+
+# Task files (commented out by default)
+# tasks.json
+# tasks/
+
+# hanachain-fds specific
+# =====================
+
+# Python
+hanachain-fds/__pycache__/
+hanachain-fds/*.py[cod]
+hanachain-fds/*$py.class
+hanachain-fds/*.so
+hanachain-fds/.Python
+
+# Virtual Environment
+hanachain-fds/.venv/
+hanachain-fds/venv/
+hanachain-fds/ENV/
+hanachain-fds/env/
+
+# Data
+hanachain-fds/data/raw/*
+hanachain-fds/data/processed/*
+hanachain-fds/data/models/*
+!hanachain-fds/data/raw/.gitkeep
+!hanachain-fds/data/processed/.gitkeep
+!hanachain-fds/data/models/.gitkeep
+!hanachain-fds/data/models/MODEL_METADATA.json
+
+# Deployment
+hanachain-fds/deploy/.env
+hanachain-fds/deploy/*.log
+
+# Jupyter Notebook
+hanachain-fds/.ipynb_checkpoints
+
+# pytest
+hanachain-fds/.pytest_cache/
+hanachain-fds/.coverage
+hanachain-fds/htmlcov/
+
+# mypy
+hanachain-fds/.mypy_cache/
+hanachain-fds/.dmypy.json
+hanachain-fds/dmypy.json
+
+# TensorFlow
+hanachain-fds/*.ckpt
+hanachain-fds/*.h5
+hanachain-fds/*.pb
+hanachain-fds/saved_model/
+
+# tools
+hanachain-fds/.kilocodemodes
+hanachain-fds/.rules
+hanachain-fds/.roomodes
+hanachain-fds/*.md
+
+
+# FDS Specific Files
+# =================
+
+# Model files and checkpoints
+hanachain-fds/*.h5
+hanachain-fds/*.hdf5
+hanachain-fds/*.ckpt
+hanachain-fds/*.pb
+hanachain-fds/*.pkl
+hanachain-fds/*.joblib
+hanachain-fds/*.model
+hanachain-fds/*.weights
+hanachain-fds/*.config.yaml
+!hanachain-fds/data/models/MODEL_METADATA.json
+!hanachain-fds/data/models/*.example.*
+
+# Training artifacts
+hanachain-fds/checkpoints/
+hanachain-fds/training_history/
+hanachain-fds/training_logs/
+hanachain-fds/wandb/
+hanachain-fds/tensorboard_logs/
+hanachain-fds/mlruns/
+
+# Model evaluation results
+hanachain-fds/evaluation_results/
+hanachain-fds/evaluation_*.yaml
+hanachain-fds/evaluation_*.json
+hanachain-fds/evaluation_*.csv
+
+# Feature engineering artifacts
+hanachain-fds/feature_cache/
+hanachain-fds/feature_pipeline_*.pkl
+hanachain-fds/feature_scaler_*.pkl
+hanachain-fds/feature_encoder_*.pkl
+
+# Data processing artifacts
+hanachain-fds/data/processed/*.parquet
+hanachain-fds/data/processed/*.feather
+hanachain-fds/data/processed/*.h5
+hanachain-fds/data/processed/*.hdf5
+hanachain-fds/data/processed/*.pkl
+hanachain-fds/data/processed/*.joblib
+hanachain-fds/data/processed/*.csv
+!hanachain-fds/data/processed/.gitkeep
+
+# Visualization outputs
+hanachain-fds/plots/
+hanachain-fds/charts/
+hanachain-fds/figures/
+hanachain-fds/*.png
+hanachain-fds/*.jpg
+hanachain-fds/*.jpeg
+hanachain-fds/*.svg
+hanachain-fds/*.pdf
+!hanachain-fds/data/visualizations/.gitkeep
+
+# Oracle database artifacts
+hanachain-fds/*.dmp
+hanachain-fds/*.sql
+hanachain-fds/*.log
+!hanachain-fds/tmp/*.example.sql
+
+# Performance profiling
+hanachain-fds/*.prof
+hanachain-fds/*.cprof
+hanachain-fds/*.profile
+hanachain-fds/profile_results/
+hanachain-fds/*.txt
+
+# Jupyter notebook checkpoints
+hanachain-fds/.ipynb_checkpoints/
+hanachain-fds/*.ipynb
+
+# MLflow artifacts
+hanachain-fds/mlflow/
+hanachain-fds/mlruns/
+hanachain-fds/mlartifacts/
+
+# Weights & Biases
+hanachain-fds/wandb/
+
+# Hydra configuration outputs
+hanachain-fds/outputs/
+hanachain-fds/.hydra/
+
+# Ray Tune results
+hanachain-fds/ray_results/
+
+# Optuna study results
+hanachain-fds/optuna_studies/
+
+# DVC (Data Version Control)
+hanachain-fds/.dvc/
+hanachain-fds/*.dvc
+
+# Great Expectations
+hanachain-fds/great_expectations/uncommitted/
+
+# Prefect
+hanachain-fds/.prefect/
+
+# Airflow
+hanachain-fds/airflow.cfg
+hanachain-fds/airflow.db
+hanachain-fds/logs/
+
+# Kubernetes
+hanachain-fds/*.kubeconfig
+
+# Docker
+hanachain-fds/.dockerignore
+hanachain-fds/docker-compose.override.yml
+
+# Monitoring and observability
+hanachain-fds/prometheus_data/
+hanachain-fds/grafana_data/
+hanachain-fds/jaeger_data/
+
+# Security and secrets
+hanachain-fds/secrets/
+hanachain-fds/*.key
+hanachain-fds/*.pem
+hanachain-fds/*.crt
+hanachain-fds/*.p12
+hanachain-fds/*.pfx
+hanachain-fds/vault/
+
+
+# IDE specific
+hanachain-fds/.vscode/settings.json
+hanachain-fds/.vscode/launch.json
+hanachain-fds/.vscode/extensions.json
+hanachain-fds/.idea/workspace.xml
+hanachain-fds/.idea/tasks.xml
+hanachain-fds/.idea/dictionaries
+hanachain-fds/.idea/shelf
+
+# Windows
+hanachain-fds/*.lnk
+
+# FDS specific patterns
+hanachain-fds/fraud_patterns/
+hanachain-fds/anomaly_detection_results/
+hanachain-fds/risk_scores/
+hanachain-fds/alert_logs/
+hanachain-fds/transaction_analysis/
+
+
+# hanachain-frontend specific
+# ==========================
+
+# Frontend specific
+hanachain-frontend/documents/
+
+# Dependencies
+hanachain-frontend/pnpm-debug.log*
+hanachain-frontend/lerna-debug.log*
+
+# Next.js
+hanachain-frontend/.next/
+hanachain-frontend/out/
+hanachain-frontend/build/
+hanachain-frontend/dist/
+
+# Production
+hanachain-frontend/build
+
+# Runtime data
+hanachain-frontend/pids
+hanachain-frontend/*.pid
+hanachain-frontend/*.seed
+hanachain-frontend/*.pid.lock
+
+# Coverage directory used by tools like istanbul
+hanachain-frontend/coverage/
+hanachain-frontend/*.lcov
+
+# nyc test coverage
+hanachain-frontend/.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+hanachain-frontend/.grunt
+
+# Bower dependency directory (https://bower.io/)
+hanachain-frontend/bower_components
+
+# node-waf configuration
+hanachain-frontend/.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+hanachain-frontend/build/Release
+
+# Dependency directories
+hanachain-frontend/jspm_packages/
+
+# TypeScript cache
+hanachain-frontend/*.tsbuildinfo
+
+# Optional npm cache directory
+hanachain-frontend/.npm
+
+# Optional eslint cache
+hanachain-frontend/.eslintcache
+
+# Optional stylelint cache
+hanachain-frontend/.stylelintcache
+
+# Microbundle cache
+hanachain-frontend/.rpt2_cache/
+hanachain-frontend/.rts2_cache_cjs/
+hanachain-frontend/.rts2_cache_es/
+hanachain-frontend/.rts2_cache_umd/
+
+# Optional REPL history
+hanachain-frontend/.node_repl_history
+
+# Output of 'npm pack'
+hanachain-frontend/*.tgz
+
+# Yarn Integrity file
+hanachain-frontend/.yarn-integrity
+
+# dotenv environment variables file
+hanachain-frontend/.env
+hanachain-frontend/.env.local
+hanachain-frontend/.env.development.local
+hanachain-frontend/.env.test.local
+hanachain-frontend/.env.production.local
+
+# parcel-bundler cache (https://parceljs.org/)
+hanachain-frontend/.cache
+hanachain-frontend/.parcel-cache
+
+# Next.js build output
+hanachain-frontend/.next
+
+# Nuxt.js build / generate output
+hanachain-frontend/.nuxt
+hanachain-frontend/dist
+
+# Gatsby files
+hanachain-frontend/.cache/
+hanachain-frontend/public
+
+# Storybook build outputs
+hanachain-frontend/.out
+hanachain-frontend/.storybook-out
+hanachain-frontend/storybook-static
+
+# Temporary folders
+hanachain-frontend/tmp/
+hanachain-frontend/temp/
+
+# Editor directories and files
+hanachain-frontend/.vscode/*
+!hanachain-frontend/.vscode/extensions.json
+
+# Vercel
+hanachain-frontend/.vercel
+
+# Turbo
+hanachain-frontend/.turbo
+
+# Sentry
+hanachain-frontend/.sentryclirc
+
+# Testing
+hanachain-frontend/coverage/
+hanachain-frontend/.nyc_output/
+
+# Storybook
+hanachain-frontend/storybook-static/
+
+# PWA files
+hanachain-frontend/**/public/sw.js
+hanachain-frontend/**/public/workbox-*.js
+hanachain-frontend/**/public/worker-*.js
+hanachain-frontend/**/public/sw.js.map
+hanachain-frontend/**/public/workbox-*.js.map
+hanachain-frontend/**/public/worker-*.js.map
+
+# hanachain-backend specific
+# ==========================
+
+# Backend specific
+hanachain-backend/documents/
+hanachain-backend/*.md
+hanachain-backend/*.sql
+
+# Gradle
+hanachain-backend/HELP.md
+hanachain-backend/.gradle
+hanachain-backend/build/
+!hanachain-backend/gradle/wrapper/gradle-wrapper.jar
+!hanachain-backend/**/src/main/**/build/
+!hanachain-backend/**/src/test/**/build/
+
+# STS (Spring Tool Suite)
+hanachain-backend/.apt_generated
+hanachain-backend/.classpath
+hanachain-backend/.factorypath
+hanachain-backend/.project
+hanachain-backend/.settings
+hanachain-backend/.springBeans
+hanachain-backend/.sts4-cache
+hanachain-backend/bin/
+!hanachain-backend/**/src/main/**/bin/
+!hanachain-backend/**/src/test/**/bin/
+
+# IntelliJ IDEA
+hanachain-backend/.idea
+hanachain-backend/*.iws
+hanachain-backend/*.iml
+hanachain-backend/*.ipr
+hanachain-backend/out/
+!hanachain-backend/**/src/main/**/out/
+!hanachain-backend/**/src/test/**/out/
+
+# NetBeans
+hanachain-backend/nbproject/private/
+hanachain-backend/nbbuild/
+hanachain-backend/dist/
+hanachain-backend/nbdist/
+hanachain-backend/.nb-gradle/
+
+# VS Code
+hanachain-backend/.vscode/
+
+# Backend specific logs
+hanachain-backend/npm-debug.log*
+hanachain-backend/yarn-debug.log*
+hanachain-backend/yarn-error.log*
+hanachain-backend/dev-debug.log
+
+# hanachain-blockchain specific
+# =============================
+
+# Blockchain specific
+hanachain-blockchain/.kilo*
+hanachain-blockchain/.roo*
+hanachain-blockchain/.rules
+
+# Remix compiler artifacts
+hanachain-blockchain/**/artifacts/
+hanachain-blockchain/**/artifacts/**
+
+# Remix plugin state folders
+hanachain-blockchain/deps/
+hanachain-blockchain/states/
+
+# Debug info
+hanachain-blockchain/*.dbg.json
+hanachain-blockchain/*.tsbuildinfo
+
+# Dependencies
+
+# Hardhat files
+hanachain-blockchain/cache
+hanachain-blockchain/artifacts
+
+# TypeChain files
+hanachain-blockchain/typechain
+hanachain-blockchain/typechain-types
+
+# solidity-coverage files
+hanachain-blockchain/coverage
+hanachain-blockchain/coverage.json
+
+# Hardhat Ignition default folder for deployments against a local node
+hanachain-blockchain/ignition/deployments/chain-31337
+
+# Blockchain specific logs
+hanachain-blockchain/npm-debug.log*
+hanachain-blockchain/yarn-debug.log*
+hanachain-blockchain/yarn-error.log*
+hanachain-blockchain/dev-debug.log

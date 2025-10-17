@@ -1,0 +1,17 @@
+{
+  "user_id": 124,
+  "email": "launderer2@naver.com",
+  "amount": 1000000,
+  "transaction_type": 0,
+  "account_age_days": 1,
+  "total_previous_donations": 36900000,
+  "donation_count": 31,
+  "avg_donation_amount": 1190322,
+  "last_donation_days_ago": 0,
+  "donations_24h": 31,
+  "donations_7d": 31,
+  "donations_30d": 31,
+  "unique_campaigns_24h": 11,
+  "unique_campaigns_7d": 11,
+  "unique_campaigns_30d": 11
+}

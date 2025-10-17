@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hanachain-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle:1521/XEPDB1
+      - SPRING_DATASOURCE_USERNAME=hanachain
+      - SPRING_DATASOURCE_PASSWORD=hanachain
+      - FDS_SERVICE_URL=http://fds:8000
+      - ALCHEMY_API_KEY=your_alchemy_api_key
+    depends_on:
+      oracle:
+        condition: service_healthy
+    networks:
+      - hanachain-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  oracle:
+    image: container-registry.oracle.com/database/express:21.3.0-xe
+    container_name: hanachain-oracle
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PWD=oracle_password
+      - ORACLE_CHARACTERSET=AL32UTF8
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - hanachain-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 90s
+
+volumes:
+  oracle-data:
+    driver: local
+
+networks:
+  hanachain-network:
+    driver: bridge

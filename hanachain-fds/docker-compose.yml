@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  fds:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hanachain-fds
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - LOG_LEVEL=INFO
+      - WORKERS=4
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs
+    networks:
+      - hanachain-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  hanachain-network:
+    driver: bridge

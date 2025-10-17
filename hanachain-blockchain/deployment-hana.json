@@ -1,0 +1,11 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "contracts": {
+    "mockUSDC": "0xd5B3A7b236a2eaCba8DC8Aeef7966Ba6d9197d0f",
+    "hanaChainCampaign": "0xC4e6726Cd8083eD88b0e521e9a8EF3a8701FBB32"
+  },
+  "deployer": "0xa757A82EDC4E1fA41E2bE0e1E0E4E847E6dd59F3",
+  "timestamp": 1759091569600,
+  "blockNumber": 9300641
+}

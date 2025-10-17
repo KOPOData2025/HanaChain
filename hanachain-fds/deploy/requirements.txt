@@ -1,0 +1,17 @@
+# HanaChain Fraud Detection System - Deployment Requirements
+
+# Core ML Framework
+tensorflow>=2.13.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# API Framework
+Flask>=3.0.0
+Flask-CORS>=4.0.0
+
+# Database (thin mode - no Oracle Instant Client required)
+oracledb>=3.0.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0

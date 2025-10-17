@@ -1,0 +1,77 @@
+# Training Configuration
+
+training:
+  # Training Strategy (3 Phases)
+  phases:
+    phase_1:
+      name: "basic_patterns"
+      epochs: 30
+      epsilon_start: 1.0
+      epsilon_end: 0.3
+      focus: "Basic fraud patterns and normal transactions"
+
+    phase_2:
+      name: "edge_cases"
+      epochs: 40
+      epsilon_start: 0.3
+      epsilon_end: 0.1
+      focus: "Edge cases and complex scenarios"
+
+    phase_3:
+      name: "fine_tuning"
+      epochs: 30
+      epsilon_start: 0.1
+      epsilon_end: 0.01
+      focus: "Model refinement and optimization"
+
+  # Training Parameters
+  total_epochs: 100
+  batch_size: 64
+  validation_frequency: 5  # Validate every N epochs
+  checkpoint_frequency: 10  # Save checkpoint every N epochs
+
+  # Early Stopping
+  early_stopping:
+    enabled: true
+    patience: 15
+    min_delta: 0.001
+    monitor: "val_f1_score"
+    mode: "max"
+
+  # Learning Rate Schedule
+  lr_schedule:
+    enabled: false
+    type: "reduce_on_plateau"
+    factor: 0.5
+    patience: 5
+    min_lr: 0.00001
+
+# Data Loading
+data:
+  train_batch_size: 64
+  val_batch_size: 128
+  test_batch_size: 128
+  shuffle: true
+  num_workers: 4
+  prefetch_factor: 2
+
+# Hyperparameter Tuning Grid
+hyperparameter_grid:
+  learning_rate: [0.001, 0.0005, 0.0001]
+  batch_size: [32, 64, 128]
+  hidden_dims:
+    - [64, 32, 16]
+    - [128, 64, 32]
+    - [256, 128, 64]
+  dropout_rate: [0.1, 0.2, 0.3]
+
+# Monitoring
+monitoring:
+  tensorboard: true
+  log_dir: "logs/"
+  metrics:
+    - "loss"
+    - "reward"
+    - "epsilon"
+    - "q_values"
+    - "action_distribution"

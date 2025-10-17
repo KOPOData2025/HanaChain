@@ -1,0 +1,146 @@
+# Data Generation Configuration
+
+data_generation:
+  # Dataset Sizes (개선: 사기율 0.02 → 0.15로 증가)
+  train:
+    size: 100000
+    fraud_rate: 0.15  # 기존 0.02 → 0.15 (15%)
+    fraud_distribution:
+      money_laundering: 0.5  # 기존 0.333 → 0.5 (돈세탁 패턴 강화)
+      account_takeover: 0.25  # 기존 0.333 → 0.25
+      burst_fraud: 0.25  # 기존 0.334 → 0.25
+
+  validation:
+    size: 20000
+    fraud_rate: 0.15  # 기존 0.02 → 0.15 (15%)
+    fraud_distribution:
+      money_laundering: 0.5  # 기존 0.333 → 0.5 (돈세탁 패턴 강화)
+      account_takeover: 0.25  # 기존 0.333 → 0.25
+      burst_fraud: 0.25  # 기존 0.334 → 0.25
+
+  test:
+    size: 20000
+    fraud_rate: 0.15  # 기존 0.02 → 0.15 (15%)
+    fraud_distribution:
+      money_laundering: 0.5  # 기존 0.333 → 0.5 (돈세탁 패턴 강화)
+      account_takeover: 0.25  # 기존 0.333 → 0.25
+      burst_fraud: 0.25  # 기존 0.334 → 0.25
+    special_cases:
+      edge_cases: 100
+      known_patterns: 50
+
+# Input Variables (13 features)
+input_variables:
+  amount:
+    type: float
+    range: [100, 100000000]
+    normalization: "log1p(x) / 15"
+
+  transaction_type:
+    type: int
+    range: [0, 2]  # 0: general, 1: recurring, 2: event
+    normalization: "x / 2"
+
+  account_age_days:
+    type: int
+    range: [0, 3650]
+    normalization: "log1p(x) / 8"
+
+  total_previous_donations:
+    type: float
+    range: [0, 1000000000]
+    normalization: "log1p(x) / 20"
+
+  donation_count:
+    type: int
+    range: [0, 1000]
+    normalization: "log1p(x) / 5"
+
+  avg_donation_amount:
+    type: float
+    range: [0, 10000000]
+    normalization: "log1p(x) / 15"
+
+  last_donation_days_ago:
+    type: int
+    range: [0, 1000]
+    normalization: "log1p(x) / 6"
+
+  donations_24h:
+    type: int
+    range: [0, 100]
+    normalization: "log1p(x) / 3"
+
+  donations_7d:
+    type: int
+    range: [0, 200]
+    normalization: "log1p(x) / 4"
+
+  donations_30d:
+    type: int
+    range: [0, 500]
+    normalization: "log1p(x) / 5"
+
+  unique_campaigns_24h:
+    type: int
+    range: [0, 50]
+    normalization: "log1p(x) / 3"
+
+  unique_campaigns_7d:
+    type: int
+    range: [0, 100]
+    normalization: "log1p(x) / 3"
+
+  unique_campaigns_30d:
+    type: int
+    range: [0, 200]
+    normalization: "log1p(x) / 3"
+
+# Fraud Patterns
+fraud_patterns:
+  money_laundering:
+    characteristics:
+      account_age_days: [0, 7]
+      donations_24h: [10, 30]
+      unique_campaigns_24h: [5, 15]
+      amount: [500000, 5000000]
+    expected_action: "MANUAL_REVIEW"
+
+  account_takeover:
+    characteristics:
+      last_donation_days_ago: [180, 500]
+      account_age_days: [365, 3650]
+      amount_multiplier: [10, 50]  # vs avg_donation_amount
+    expected_action: "BLOCK"
+
+  burst_fraud:
+    characteristics:
+      donations_24h: [20, 100]
+      amount: [1000, 10000]
+      account_age_days: [0, 3]
+    expected_action: "BLOCK"
+
+# Normal Patterns
+normal_patterns:
+  loyal_donor:
+    characteristics:
+      account_age_days: [180, 3650]
+      donation_count: [10, 1000]
+      amount_consistency: 0.8  # amount ≈ avg_donation_amount
+    expected_action: "APPROVE"
+
+  large_recurring_donor:
+    characteristics:
+      amount: [1000000, 100000000]
+      account_age_days: [365, 3650]
+      avg_donation_amount: [500000, 10000000]
+      transaction_type: 1  # recurring
+    expected_action: "APPROVE"
+
+# File Paths
+paths:
+  raw_data: "data/raw/"
+  processed_data: "data/processed/"
+  train_file: "train_data.parquet"
+  val_file: "val_data.parquet"
+  test_file: "test_data.parquet"

@@ -1,0 +1,9 @@
+{
+  "network": "sepolia",
+  "chainId": "11155111",
+  "factoryAddress": "0x2C87C524D17e172B71aaCc52eE71e3A15FA6483d",
+  "deploymentTx": "0x710f4e7bea32dffef77fa752ac0fd0167a59da17037d2f47725d13328a46da95",
+  "deployer": "0xa757A82EDC4E1fA41E2bE0e1E0E4E847E6dd59F3",
+  "timestamp": 1754050934369,
+  "gasUsed": "2367569"
+}

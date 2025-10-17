@@ -1,0 +1,16 @@
+[
+  {
+    "campaignAddress": "0x312dBB71A384492B29D9E655662608a46625a13b",
+    "factoryAddress": "0x2C87C524D17e172B71aaCc52eE71e3A15FA6483d",
+    "title": "의료비 지원 캠페인",
+    "description": "어려움에 처한 가정의 의료비를 지원하는 캠페인입니다.",
+    "goalAmountEth": 5,
+    "goalAmountWei": "5000000000000000000",
+    "durationDays": 30,
+    "beneficiaryAddress": "0x742D35cC6634C0532925a3B8D91D5456b7Bb9AAE",
+    "creator": "0xa757A82EDC4E1fA41E2bE0e1E0E4E847E6dd59F3",
+    "createdAt": 1754051342420,
+    "transactionHash": "0xa0b2d5e4eebe544e75db34e227da7d157d89c6eea1bcb65465656f94f6581da7",
+    "gasUsed": "1279480"
+  }
+]

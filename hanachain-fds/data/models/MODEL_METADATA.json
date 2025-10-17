@@ -1,0 +1,219 @@
+{
+  "model_info": {
+    "name": "HanaChain Fraud Detection System",
+    "version": "1.0.0",
+    "framework": "TensorFlow/Keras",
+    "model_type": "DQN (Deep Q-Network)",
+    "training_date": "2025-10-08",
+    "description": "Reinforcement learning-based fraud detection system for donation transactions"
+  },
+  "architecture": {
+    "input_features": 17,
+    "hidden_layers": [64, 32, 16],
+    "output_actions": 3,
+    "activation": "relu",
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss_function": "Huber"
+  },
+  "performance_metrics": {
+    "test_accuracy": 0.994,
+    "precision": 0.768,
+    "recall": 0.24,
+    "f1_score": 0.367,
+    "fpr": 0.0004,
+    "approval_rate": 0.994,
+    "manual_review_rate": 0.003,
+    "block_rate": 0.003
+  },
+  "inference_performance": {
+    "avg_latency_ms": 4.19,
+    "p50_latency_ms": 3.34,
+    "p95_latency_ms": 5.32,
+    "p99_latency_ms": 10.53,
+    "max_latency_ms": 109.19,
+    "throughput_tps": 239.33,
+    "target_latency_ms": 200,
+    "target_throughput_tps": 100,
+    "meets_performance_targets": true
+  },
+  "training_config": {
+    "total_episodes": 200,
+    "replay_buffer_size": 10000,
+    "batch_size": 64,
+    "gamma": 0.99,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.01,
+    "epsilon_decay": 0.995,
+    "target_update_frequency": 10
+  },
+  "features": [
+    {
+      "index": 0,
+      "name": "amount_normalized",
+      "description": "Normalized transaction amount",
+      "type": "continuous",
+      "range": [0, 1]
+    },
+    {
+      "index": 1,
+      "name": "hour_of_day",
+      "description": "Hour of transaction (0-23)",
+      "type": "continuous",
+      "range": [0, 23]
+    },
+    {
+      "index": 2,
+      "name": "day_of_week",
+      "description": "Day of week (0=Monday, 6=Sunday)",
+      "type": "continuous",
+      "range": [0, 6]
+    },
+    {
+      "index": 3,
+      "name": "is_weekend",
+      "description": "Weekend indicator",
+      "type": "binary",
+      "range": [0, 1]
+    },
+    {
+      "index": 4,
+      "name": "account_age_days",
+      "description": "User account age in days",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 5,
+      "name": "total_previous_donations",
+      "description": "Total amount of previous donations",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 6,
+      "name": "donation_count",
+      "description": "Number of previous donations",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 7,
+      "name": "avg_donation_amount",
+      "description": "Average previous donation amount",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 8,
+      "name": "last_donation_days_ago",
+      "description": "Days since last donation",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 9,
+      "name": "donations_last_24h",
+      "description": "Number of donations in last 24 hours",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 10,
+      "name": "donations_last_7d",
+      "description": "Number of donations in last 7 days",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 11,
+      "name": "donations_last_30d",
+      "description": "Number of donations in last 30 days",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 12,
+      "name": "unique_campaigns_24h",
+      "description": "Number of unique campaigns donated to in 24h",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 13,
+      "name": "unique_campaigns_7d",
+      "description": "Number of unique campaigns donated to in 7d",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 14,
+      "name": "unique_campaigns_30d",
+      "description": "Number of unique campaigns donated to in 30d",
+      "type": "continuous",
+      "range": [0, "inf"]
+    },
+    {
+      "index": 15,
+      "name": "is_credit_card",
+      "description": "Credit card payment method indicator",
+      "type": "binary",
+      "range": [0, 1]
+    },
+    {
+      "index": 16,
+      "name": "is_bank_transfer",
+      "description": "Bank transfer payment method indicator",
+      "type": "binary",
+      "range": [0, 1]
+    }
+  ],
+  "actions": [
+    {
+      "id": 0,
+      "name": "APPROVE",
+      "description": "Approve transaction immediately"
+    },
+    {
+      "id": 1,
+      "name": "MANUAL_REVIEW",
+      "description": "Flag transaction for manual review"
+    },
+    {
+      "id": 2,
+      "name": "BLOCK",
+      "description": "Block transaction immediately"
+    }
+  ],
+  "model_files": {
+    "main_network_weights": "dqn_agent_final_main.weights.h5",
+    "main_network_config": "dqn_agent_final_main.config.yaml",
+    "target_network_weights": "dqn_agent_final_target.weights.h5",
+    "target_network_config": "dqn_agent_final_target.config.yaml",
+    "feature_pipeline": "feature_pipeline.pkl"
+  },
+  "deployment_requirements": {
+    "python_version": ">=3.9",
+    "tensorflow_version": ">=2.13.0",
+    "numpy_version": ">=1.24.0",
+    "pandas_version": ">=2.0.0",
+    "required_packages": [
+      "tensorflow>=2.13.0",
+      "numpy>=1.24.0",
+      "pandas>=2.0.0",
+      "cx_Oracle>=8.3.0"
+    ]
+  },
+  "known_limitations": {
+    "conservative_model": "Model has high precision (76.8%) but low recall (24%), resulting in 99.4% approval rate",
+    "false_negatives": "May miss fraud patterns in favor of minimizing false positives",
+    "data_dependency": "Requires Oracle database connection for user history features",
+    "retraining_recommended": "Consider retraining with adjusted reward function for production use"
+  },
+  "notes": [
+    "Model prioritizes precision over recall to minimize false positives",
+    "Performance targets exceeded: p95 latency 5.32ms vs 200ms target, throughput 239 TPS vs 100 TPS target",
+    "159/166 tests passing (95.8% pass rate)",
+    "Test coverage: 61% overall, 98-100% for core modules"
+  ]
+}
